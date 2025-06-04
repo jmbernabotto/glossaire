@@ -1,0 +1,851 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    color: white;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 300;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.search-section {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+.search-input {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    outline: none;
+    transition: box-shadow 0.3s ease;
+}
+
+.search-input:focus {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.add-btn {
+    padding: 12px 25px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    white-space: nowrap;
+}
+
+.add-btn:hover {
+    background: #45a049;
+}
+
+.glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+/* Styles pour les catégories */
+.category-section {
+    margin-bottom: 40px;
+}
+
+.category-title {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding: 15px 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.term-category-badge {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    background: #3498db;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+.term-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    padding-top: 35px; /* Espace pour le badge de catégorie */
+}
+
+.term-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.term-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 8px;
+}
+
+.term-definition {
+    line-height: 1.6;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.delete-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    font-size: 12px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.term-card:hover .delete-btn {
+    display: flex;
+}
+
+.delete-btn:hover {
+    background: #c0392b;
+}
+
+/* Styles pour les catégories en colonnes */
+.categories-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    align-items: start;
+}
+
+.category-column {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 25px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    height: fit-content;
+}
+
+.category-title {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+    margin: -10px -10px 20px -10px;
+}
+
+.terms-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.term-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    border-left: 4px solid #3498db;
+}
+
+.term-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.term-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.term-definition {
+    line-height: 1.5;
+    color: #555;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.delete-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    font-size: 12px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.term-card:hover .delete-btn {
+    display: flex;
+}
+
+.delete-btn:hover {
+    background: #c0392b;
+}
+
+.no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: white;
+    font-size: 1.1rem;
+    margin-top: 50px;
+    opacity: 0.8;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+    .categories-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .categories-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .category-column {
+        padding: 20px;
+    }
+    
+    .category-title {
+        font-size: 1.2rem;
+        padding: 10px 15px;
+    }
+    
+    .term-card {
+        padding: 15px;
+    }
+    
+    .term-title {
+        font-size: 1rem;
+    }
+    
+    .term-definition {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .category-title {
+        font-size: 1.1rem;
+    }
+}
+
+/* Styles pour les catégories horizontales */
+.category-section {
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.category-title {
+    color: white;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    padding: 20px 30px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.terms-horizontal-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+    width: 100%;
+}
+
+/* Suppression des styles de catégories */
+.category-section {
+    display: none;
+}
+
+.category-title {
+    display: none;
+}
+
+.terms-horizontal-grid {
+    display: none;
+}
+
+/* Responsive pour tablettes */
+@media (max-width: 768px) {
+    .glossary-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+}
+
+/* Responsive pour mobiles */
+@media (max-width: 480px) {
+    .glossary-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
+
+.term-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    border-left: 4px solid #3498db;
+    height: fit-content;
+}
+
+.term-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    border-left-color: #2980b9;
+}
+
+.term-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    line-height: 1.3;
+    border-bottom: 2px solid #ecf0f1;
+    padding-bottom: 8px;
+}
+
+.term-definition {
+    line-height: 1.6;
+    color: #555;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.delete-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    font-size: 12px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.term-card:hover .delete-btn {
+    display: flex;
+}
+
+.delete-btn:hover {
+    background: #c0392b;
+}
+
+.no-results {
+    text-align: center;
+    color: white;
+    font-size: 1.1rem;
+    margin-top: 50px;
+    opacity: 0.8;
+    grid-column: 1 / -1;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .terms-horizontal-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+    
+    .category-title {
+        font-size: 1.7rem;
+        padding: 18px 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .terms-horizontal-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .category-title {
+        font-size: 1.5rem;
+        padding: 15px 20px;
+        margin-bottom: 20px;
+    }
+    
+    .term-card {
+        padding: 20px;
+    }
+    
+    .term-title {
+        font-size: 1.1rem;
+    }
+    
+    .term-definition {
+        font-size: 0.9rem;
+    }
+    
+    .category-section {
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .category-title {
+        font-size: 1.3rem;
+        padding: 12px 15px;
+    }
+    
+    .term-card {
+        padding: 15px;
+    }
+    
+    .term-title {
+        font-size: 1rem;
+    }
+    
+    .term-definition {
+        font-size: 0.85rem;
+    }
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.close:hover {
+    color: #333;
+}
+
+.modal-content h2 {
+    margin-bottom: 25px;
+    color: #2c3e50;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+    margin-top: 25px;
+}
+
+.cancel-btn,
+.submit-btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.cancel-btn {
+    background: #95a5a6;
+    color: white;
+}
+
+.cancel-btn:hover {
+    background: #7f8c8d;
+}
+
+.submit-btn {
+    background: #3498db;
+    color: white;
+}
+
+.submit-btn:hover {
+    background: #2980b9;
+}
+
+.no-results {
+    text-align: center;
+    color: white;
+    font-size: 1.1rem;
+    margin-top: 50px;
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .search-section {
+        flex-direction: column;
+    }
+    
+    .glossary-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-content {
+        margin: 20% auto;
+        padding: 20px;
+    }
+    
+    @media (max-width: 768px) {
+        .category-title {
+            font-size: 1.4rem;
+            padding: 12px 20px;
+        }
+        
+        .category-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+/* Styles pour le drag and drop */
+.term-card {
+    position: relative;
+    /* Supprimer la transition par défaut pour éviter les conflits */
+    transition: none;
+    min-height: 150px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Transitions uniquement quand ce n'est PAS en cours de drag */
+.term-card:not(.dragging) {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.term-card.dragging {
+    /* Désactiver les transitions pendant le drag */
+    transition: none !important;
+    
+    /* Styles de drag */
+    position: fixed !important;
+    z-index: 1000 !important;
+    pointer-events: none !important;
+    opacity: 0.8;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    
+    /* Dimensions fixes */
+    width: 350px;
+    max-width: 350px;
+    
+    /* Rotation légère pour l'effet visuel */
+    transform: rotate(5deg);
+}
+
+/* Supprimer les styles du placeholder (plus nécessaire) */
+/* .card-placeholder { ... } */
+
+/* Transitions normales quand pas en drag */
+.term-card:not(.dragging) {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+/* Style pour la carte cible */
+.term-card {
+    /* ... existing code ... */
+    transition: background-color 0.2s ease;
+}
+
+.card-placeholder {
+    background: rgba(0,0,0,0.05);
+    border: 2px dashed rgba(0,0,0,0.2);
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+/* Transitions normales quand pas en drag */
+.term-card:not(.dragging) {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Handle de drag visible - déplacé en haut à gauche */
+.drag-handle {
+    position: absolute;
+    top: 10px;
+    left: 10px;  /* Changé de right à left */
+    width: 20px;
+    height: 20px;
+    cursor: grab;
+    background: rgba(0,0,0,0.1);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: #666;
+    z-index: 10;
+}
+
+.drag-handle:hover {
+    background: rgba(0,0,0,0.2);
+}
+
+.drag-handle:active {
+    cursor: grabbing;
+}
+
+.drag-handle::before {
+    content: '⋮⋮';
+    line-height: 1;
+    letter-spacing: -2px;
+}
+
+/* Bouton de suppression - reste en haut à droite */
+.delete-btn {
+    position: absolute;
+    top: 10px;  /* Ajusté pour être aligné avec le drag-handle */
+    right: 10px; /* Ajusté pour être symétrique */
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    font-size: 12px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+    z-index: 10;
+}
+
+.term-card:hover .delete-btn {
+    display: flex;
+}
+
+.delete-btn:hover {
+    background: #c0392b;
+}
+
+.drag-handle:hover {
+    background: rgba(255,255,255,0.2);
+    color: #333;
+    transform: scale(1.1);
+}
+
+.drag-handle:active {
+    cursor: grabbing;
+    transform: scale(0.95);
+}
+
+/* Placeholder pour indiquer où la carte sera déposée */
+.card-placeholder {
+    background: rgba(255,255,255,0.1);
+    border: 2px dashed rgba(255,255,255,0.3);
+    border-radius: 15px;
+    margin: 10px;
+    transition: all 0.2s ease;
+    min-height: 150px;
+    width: 100%;
+}
+
+/* Styles pour les cartes pendant le survol (uniquement si pas en drag) */
+.term-card:hover:not(.dragging) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Responsive pour le drag handle */
+@media (max-width: 768px) {
+    .drag-handle {
+        width: 25px;
+        height: 25px;
+        font-size: 14px;
+        top: 5px;
+        right: 35px;
+    }
+    
+    .term-card.dragging {
+        width: 300px;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .drag-handle {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+        top: 5px;
+        right: 30px;
+    }
+    
+    .term-card.dragging {
+        width: 280px;
+        max-width: 280px;
+    }
+}
