@@ -638,7 +638,9 @@ function handleAddTerm(event) {
         filteredTerms = [...glossaryTerms];
         
         // AJOUTER CETTE LIGNE POUR SAUVEGARDER
+        // Dans handleAddTerm, après localStorage.setItem
         localStorage.setItem('glossaryTerms', JSON.stringify(glossaryTerms));
+        console.log('Terme sauvegardé:', newTerm, 'Total termes:', glossaryTerms.length); // DEBUG
         
         renderGlossary();
         closeModalHandler();
