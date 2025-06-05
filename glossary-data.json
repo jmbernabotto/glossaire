@@ -1,233 +1,402 @@
 {
-  "terms": [
-    {
-      "id": 1,
-      "term": "Intelligence Artificielle (IA)",
-      "definition": "Technologie qui permet aux machines de simuler l'intelligence humaine, incluant l'apprentissage, le raisonnement et l'auto-correction. L'IA vise à créer des systèmes capables d'effectuer des tâches qui nécessitent normalement l'intelligence humaine.",
-      "category": "Concepts de Base"
-    },
-    {
-      "id": 2,
-      "term": "Algorithme",
-      "definition": "Ensemble d'instructions ou de règles définies pour résoudre un problème ou accomplir une tâche. En IA, les algorithmes sont utilisés pour traiter les données, identifier des modèles et prendre des décisions automatisées.",
-      "category": "Concepts de Base"
-    },
-    {
-      "id": 3,
-      "term": "Réseau de Neurones",
-      "definition": "Modèle informatique inspiré du fonctionnement du cerveau humain, composé de neurones artificiels interconnectés. Ces réseaux peuvent apprendre à partir de données pour résoudre des problèmes complexes de reconnaissance, classification et prédiction.",
-      "category": "Concepts de Base"
-    },
-    {
-      "id": 4,
-      "term": "Machine Learning (Apprentissage Automatique)",
-      "definition": "Sous-domaine de l'IA qui permet aux ordinateurs d'apprendre et de s'améliorer automatiquement à partir de l'expérience sans être explicitement programmés. Les algorithmes de ML identifient des modèles dans les données pour faire des prédictions.",
-      "category": "Techniques d'Apprentissage"
-    },
-    {
-      "id": 5,
-      "term": "Deep Learning (Apprentissage Profond)",
-      "definition": "Sous-ensemble du machine learning utilisant des réseaux de neurones artificiels avec plusieurs couches cachées. Cette approche imite le fonctionnement du cerveau humain pour traiter des données complexes comme les images, le son et le texte.",
-      "category": "Techniques d'Apprentissage"
-    },
-    {
-      "id": 6,
-      "term": "Apprentissage Supervisé",
-      "definition": "Méthode d'apprentissage automatique où l'algorithme apprend à partir d'exemples étiquetés (données d'entrée avec les réponses correctes). Le modèle utilise ces exemples pour faire des prédictions sur de nouvelles données non étiquetées.",
-      "category": "Techniques d'Apprentissage"
-    },
-    {
-      "id": 7,
-      "term": "Apprentissage Non Supervisé",
-      "definition": "Technique d'apprentissage automatique où l'algorithme découvre des structures cachées dans des données non étiquetées, sans connaître les réponses correctes. Utilisé pour la classification automatique, la détection d'anomalies et la réduction de dimensionnalité.",
-      "category": "Techniques d'Apprentissage"
-    },
-    {
-      "id": 8,
-      "term": "Apprentissage par Renforcement",
-      "definition": "Méthode d'apprentissage où un agent apprend à prendre des décisions en interagissant avec un environnement. L'agent reçoit des récompenses ou des pénalités selon ses actions, optimisant ainsi sa stratégie au fil du temps.",
-      "category": "Techniques d'Apprentissage"
-    },
-    {
-      "id": 9,
-      "term": "Transformer",
-      "definition": "Architecture de réseau de neurones révolutionnaire utilisant des mécanismes d'attention pour traiter des séquences de données. Les Transformers sont à la base des modèles de langage modernes comme GPT et BERT, excellant dans le traitement du langage naturel.",
-      "category": "Architectures et Modèles"
-    },
-    {
-      "id": 10,
-      "term": "Modèle de Fondation",
-      "definition": "Modèle d'IA large et polyvalent, pré-entraîné sur d'énormes quantités de données, qui peut être adapté à diverses tâches spécifiques. Ces modèles servent de base pour développer des applications IA spécialisées.",
-      "category": "Architectures et Modèles"
-    },
-    {
-      "id": 11,
-      "term": "LLM (Large Language Model / Grand Modèle de Langage)",
-      "definition": "Modèle d'IA entraîné sur de vastes corpus de texte pour comprendre et générer du langage naturel. Les LLM peuvent effectuer diverses tâches linguistiques comme la traduction, la rédaction et la conversation.",
-      "category": "Architectures et Modèles"
-    },
-    {
-      "id": 12,
-      "term": "IA Générative",
-      "definition": "Type d'intelligence artificielle capable de créer du nouveau contenu original (texte, images, audio, vidéo) en apprenant à partir de données existantes. Elle peut produire des créations qui semblent avoir été faites par des humains.",
-      "category": "Architectures et Modèles"
-    },
-    {
-      "id": 13,
-      "term": "IA Générale (AGI - Artificial General Intelligence)",
-      "definition": "Intelligence artificielle hypothétique qui égalerait ou surpasserait l'intelligence humaine dans tous les domaines cognitifs. Contrairement à l'IA spécialisée actuelle, l'AGI pourrait comprendre, apprendre et appliquer ses connaissances de manière flexible.",
-      "category": "Architectures et Modèles"
-    },
-    {
-      "id": 14,
-      "term": "Données d'EntraÎnement",
-      "definition": "Ensemble de données utilisées pour entraîner un modèle d'IA ou de machine learning. Ces données permettent au modèle d'apprendre les modèles et relations nécessaires pour faire des prédictions sur de nouvelles données.",
-      "category": "Données et EntraÎnement"
-    },
-    {
-      "id": 15,
-      "term": "EntraÎnement de Modèle",
-      "definition": "Processus par lequel un algorithme d'IA apprend à partir de données d'entraÎnement pour développer sa capacité à faire des prédictions ou prendre des décisions. L'entraÎnement ajuste les paramètres du modèle pour optimiser ses performances.",
-      "category": "Données et EntraÎnement"
-    },
-    {
-      "id": 16,
-      "term": "Prompt",
-      "definition": "Instruction ou question donnée à un modèle d'IA pour obtenir une réponse spécifique. La qualité et la précision du prompt influencent directement la pertinence et l'utilité de la réponse générée par l'IA.",
-      "category": "Applications et Interfaces"
-    },
-    {
-      "id": 17,
-      "term": "Éthique de l'IA",
-      "definition": "Ensemble de principes moraux et de considérations éthiques concernant le développement et l'utilisation de l'intelligence artificielle. Inclut la transparence, l'équité, la responsabilité et le respect de la vie privée.",
-      "category": "Enjeux Éthiques et Réglementaires"
-    },
-    {
-      "id": 18,
-      "term": "Biais Algorithmique",
-      "definition": "Erreurs systématiques dans les algorithmes d'IA qui produisent des résultats injustes ou discriminatoires envers certains groupes. Ces biais peuvent provenir des données d'entraÎnement ou de la conception de l'algorithme lui-même.",
-      "category": "Enjeux Éthiques et Réglementaires"
-    },
-    {
-      "id": 19,
-      "term": "API (Application Programming Interface)",
-      "definition": "Interface de programmation qui permet à différentes applications de communiquer entre elles. En IA, les APIs permettent d'intégrer facilement des services d'intelligence artificielle dans des applications tierces.",
-      "category": "Glossaire Étendu - Termes Complémentaires"
-    },
-    {
-      "id": 20,
-      "term": "Hallucination (IA)",
-      "definition": "Phénomène où un modèle d'IA génère des informations incorrectes, inventées ou non fondées, tout en les présentant avec confiance. C'est un défi majeur des modèles génératifs, particulièrement des LLM.",
-      "category": "Glossaire Étendu - Termes Complémentaires"
-    },
-    {
-      "id": 21,
-      "term": "Fine-tuning (Affinage)",
-      "definition": "Processus d'adaptation d'un modèle pré-entraîné à une tâche spécifique en continuant son entraînement sur un ensemble de données plus restreint et ciblé. Permet d'optimiser les performances pour des applications particulières.",
-      "category": "Glossaire Étendu - Termes Complémentaires"
-    },
-    {
-      "id": 22,
-      "term": "Token",
-      "definition": "Unité de base utilisée par les modèles de langage pour traiter le texte. Un token peut représenter un mot, une partie de mot, ou même un caractère, selon la méthode de tokenisation utilisée par le modèle.",
-      "category": "Glossaire Étendu - Termes Complémentaires"
-    },
-    {
-      "id": 23,
-      "term": "Inférence",
-      "definition": "Processus par lequel un modèle d'IA entraîné utilise ses connaissances acquises pour faire des prédictions ou générer des réponses sur de nouvelles données qu'il n'a jamais vues auparavant.",
-      "category": "Glossaire Étendu - Termes Complémentaires"
-    },
-    {
-      "id": 24,
-      "term": "Hyperparamètres",
-      "definition": "Paramètres de configuration qui contrôlent le processus d'entraînement d'un modèle d'IA, comme le taux d'apprentissage, le nombre d'époques, ou la taille des couches. Ils sont définis avant l'entraînement et influencent les performances du modèle.",
-      "category": "Glossaire Étendu - Termes Complémentaires"
-    },
-    {
+    "terms": [
+      {
+        "id": 1,
+        "term": "Intelligence Artificielle (IA)",
+        "definition": "Technologie qui permet aux machines de simuler l'intelligence humaine, incluant l'apprentissage, le raisonnement et l'auto-correction. L'IA vise à créer des systèmes capables d'effectuer des tâches qui nécessitent normalement l'intelligence humaine.",
+        "category": "Concepts de Base"
+      },
+      {
+        "id": 2,
+        "term": "Algorithme",
+        "definition": "Ensemble d'instructions ou de règles définies pour résoudre un problème ou accomplir une tâche. En IA, les algorithmes sont utilisés pour traiter les données, identifier des modèles et prendre des décisions automatisées.",
+        "category": "Concepts de Base"
+      },
+      {
+        "id": 3,
+        "term": "Réseau de Neurones",
+        "definition": "Modèle informatique inspiré du fonctionnement du cerveau humain, composé de neurones artificiels interconnectés. Ces réseaux peuvent apprendre à partir de données pour résoudre des problèmes complexes de reconnaissance, classification et prédiction.",
+        "category": "Concepts de Base"
+      },
+      {
+        "id": 4,
+        "term": "Machine Learning (Apprentissage Automatique)",
+        "definition": "Sous-domaine de l'IA qui permet aux ordinateurs d'apprendre et de s'améliorer automatiquement à partir de l'expérience sans être explicitement programmés. Les algorithmes de ML identifient des modèles dans les données pour faire des prédictions.",
+        "category": "Techniques d'Apprentissage"
+      },
+      {
+        "id": 5,
+        "term": "Deep Learning (Apprentissage Profond)",
+        "definition": "Sous-ensemble du machine learning utilisant des réseaux de neurones artificiels avec plusieurs couches cachées. Cette approche imite le fonctionnement du cerveau humain pour traiter des données complexes comme les images, le son et le texte.",
+        "category": "Techniques d'Apprentissage"
+      },
+      {
+        "id": 6,
+        "term": "Apprentissage Supervisé",
+        "definition": "Méthode d'apprentissage automatique où l'algorithme apprend à partir d'exemples étiquetés (données d'entrée avec les réponses correctes). Le modèle utilise ces exemples pour faire des prédictions sur de nouvelles données non étiquetées.",
+        "category": "Techniques d'Apprentissage"
+      },
+      {
+        "id": 7,
+        "term": "Apprentissage Non Supervisé",
+        "definition": "Technique d'apprentissage automatique où l'algorithme découvre des structures cachées dans des données non étiquetées, sans connaître les réponses correctes. Utilisé pour la classification automatique, la détection d'anomalies et la réduction de dimensionnalité.",
+        "category": "Techniques d'Apprentissage"
+      },
+      {
+        "id": 8,
+        "term": "Apprentissage par Renforcement",
+        "definition": "Méthode d'apprentissage où un agent apprend à prendre des décisions en interagissant avec un environnement. L'agent reçoit des récompenses ou des pénalités selon ses actions, optimisant ainsi sa stratégie au fil du temps.",
+        "category": "Techniques d'Apprentissage"
+      },
+      {
+        "id": 9,
+        "term": "Transformer",
+        "definition": "Architecture de réseau de neurones révolutionnaire utilisant des mécanismes d'attention pour traiter des séquences de données. Les Transformers sont à la base des modèles de langage modernes comme GPT et BERT, excellant dans le traitement du langage naturel.",
+        "category": "Architectures et Modèles"
+      },
+      {
+        "id": 10,
+        "term": "Modèle de Fondation",
+        "definition": "Modèle d'IA large et polyvalent, pré-entraîné sur d'énormes quantités de données, qui peut être adapté à diverses tâches spécifiques. Ces modèles servent de base pour développer des applications IA spécialisées.",
+        "category": "Architectures et Modèles"
+      },
+      {
+        "id": 11,
+        "term": "LLM (Large Language Model / Grand Modèle de Langage)",
+        "definition": "Modèle d'IA entraîné sur de vastes corpus de texte pour comprendre et générer du langage naturel. Les LLM peuvent effectuer diverses tâches linguistiques comme la traduction, la rédaction et la conversation.",
+        "category": "Architectures et Modèles"
+      },
+      {
+        "id": 12,
+        "term": "IA Générative",
+        "definition": "Type d'intelligence artificielle capable de créer du nouveau contenu original (texte, images, audio, vidéo) en apprenant à partir de données existantes. Elle peut produire des créations qui semblent avoir été faites par des humains.",
+        "category": "Architectures et Modèles"
+      },
+      {
+        "id": 13,
+        "term": "IA Générale (AGI - Artificial General Intelligence)",
+        "definition": "Intelligence artificielle hypothétique qui égalerait ou surpasserait l'intelligence humaine dans tous les domaines cognitifs. Contrairement à l'IA spécialisée actuelle, l'AGI pourrait comprendre, apprendre et appliquer ses connaissances de manière flexible.",
+        "category": "Architectures et Modèles"
+      },
+      {
+        "id": 14,
+        "term": "Données d'EntraÎnement",
+        "definition": "Ensemble de données utilisées pour entraîner un modèle d'IA ou de machine learning. Ces données permettent au modèle d'apprendre les modèles et relations nécessaires pour faire des prédictions sur de nouvelles données.",
+        "category": "Données et EntraÎnement"
+      },
+      {
+        "id": 15,
+        "term": "EntraÎnement de Modèle",
+        "definition": "Processus par lequel un algorithme d'IA apprend à partir de données d'entraÎnement pour développer sa capacité à faire des prédictions ou prendre des décisions. L'entraÎnement ajuste les paramètres du modèle pour optimiser ses performances.",
+        "category": "Données et EntraÎnement"
+      },
+      {
+        "id": 16,
+        "term": "Prompt",
+        "definition": "Instruction ou question donnée à un modèle d'IA pour obtenir une réponse spécifique. La qualité et la précision du prompt influencent directement la pertinence et l'utilité de la réponse générée par l'IA.",
+        "category": "Applications et Interfaces"
+      },
+      {
+        "id": 17,
+        "term": "Éthique de l'IA",
+        "definition": "Ensemble de principes moraux et de considérations éthiques concernant le développement et l'utilisation de l'intelligence artificielle. Inclut la transparence, l'équité, la responsabilité et le respect de la vie privée.",
+        "category": "Enjeux Éthiques et Réglementaires"
+      },
+      {
+        "id": 18,
+        "term": "Biais Algorithmique",
+        "definition": "Erreurs systématiques dans les algorithmes d'IA qui produisent des résultats injustes ou discriminatoires envers certains groupes. Ces biais peuvent provenir des données d'entraÎnement ou de la conception de l'algorithme lui-même.",
+        "category": "Enjeux Éthiques et Réglementaires"
+      },
+      {
+        "id": 19,
+        "term": "API (Application Programming Interface)",
+        "definition": "Interface de programmation qui permet à différentes applications de communiquer entre elles. En IA, les APIs permettent d'intégrer facilement des services d'intelligence artificielle dans des applications tierces.",
+        "category": "Glossaire Étendu - Termes Complémentaires"
+      },
+      {
+        "id": 20,
+        "term": "Hallucination (IA)",
+        "definition": "Phénomène où un modèle d'IA génère des informations incorrectes, inventées ou non fondées, tout en les présentant avec confiance. C'est un défi majeur des modèles génératifs, particulièrement des LLM.",
+        "category": "Glossaire Étendu - Termes Complémentaires"
+      },
+      {
+        "id": 21,
+        "term": "Fine-tuning (Affinage)",
+        "definition": "Processus d'adaptation d'un modèle pré-entraîné à une tâche spécifique en continuant son entraînement sur un ensemble de données plus restreint et ciblé. Permet d'optimiser les performances pour des applications particulières.",
+        "category": "Glossaire Étendu - Termes Complémentaires"
+      },
+      {"id":22,
+          "term":"tokenisation",
+          "definition":"La tokenisation découpe le texte en unités élémentaires (tokens) que le modèle peut traiter numériquement. Chaque token reçoit un identifiant unique dans un vocabulaire fixe. En gros, 1 token=0,75 mot. Cela standardise l'input textuel en nombres pour les réseaux de neurones et permet un découpage quelle que soit la langue.",
+          "category":"Concepts de Base"
+      },
+      {
+        "id": 23,
+        "term": "Token",
+        "definition": "Unité de base utilisée par les modèles de langage pour traiter le texte. Un token peut représenter un mot, une partie de mot, ou même un caractère, selon la méthode de tokenisation utilisée par le modèle.",
+        "category": "Glossaire Étendu - Termes Complémentaires"
+      },
+      {
+        "id": 24,
+        "term": "Inférence",
+        "definition": "Processus par lequel un modèle d'IA entraîné utilise ses connaissances acquises pour faire des prédictions ou générer des réponses sur de nouvelles données qu'il n'a jamais vues auparavant.",
+        "category": "Glossaire Étendu - Termes Complémentaires"
+      },
+      {
+        "id": 25,
+        "term": "Hyperparamètres",
+        "definition": "Paramètres de configuration qui contrôlent le processus d'entraînement d'un modèle d'IA, comme le taux d'apprentissage, le nombre d'époques, ou la taille des couches. Ils sont définis avant l'entraînement et influencent les performances du modèle.",
+        "category": "Glossaire Étendu - Termes Complémentaires"
+      },
+      {
+          "id": 26,
+          "term": "RGPD (Règlement Général sur la Protection des Données)",
+          "definition": "Règlement européen entré en vigueur en 2018 qui encadre le traitement des données personnelles. En IA, le RGPD impose des obligations strictes sur la collecte, le traitement et l'utilisation des données personnelles pour l'entraînement des modèles.",
+          "category": "Enjeux Éthiques et Réglementaires"
+      },
+      {
+          "id": 27,
+          "term": "AI Act (Loi européenne sur l'IA)",
+          "definition": "Premier cadre réglementaire complet au monde pour l'intelligence artificielle, adopté par l'UE en 2024. Il classe les systèmes d'IA selon leur niveau de risque et impose des obligations proportionnelles, visant à garantir une IA sûre et respectueuse des droits fondamentaux.",
+          "category": "Enjeux Éthiques et Réglementaires"
+      },
+      {
+        "id": 28,
+        "term": "Big Data",
+        "definition": "Terme désignant des ensembles de données si volumineux et complexes qu'ils nécessitent des outils spécialisés pour être stockés, traités et analysés. Le Big Data est caractérisé par les 3V : Volume, Vitesse et Variété.",
+        "category": "Données et Traitement"
+      },
+      {
+        "id": 29,
+        "term": "Traitement du Langage Naturel (NLP)",
+        "definition": "Branche de l'IA qui permet aux ordinateurs de comprendre, interpréter et générer le langage humain. Le NLP combine la linguistique computationnelle avec l'apprentissage automatique pour traiter le texte et la parole.",
+        "category": "Applications de l'IA"
+      },
+      {
+        "id": 30,
+        "term": "Vision par Ordinateur",
+        "definition": "Domaine de l'IA qui permet aux machines d'interpréter et de comprendre le contenu visuel des images et vidéos. Utilisée pour la reconnaissance d'objets, la détection de visages, l'analyse médicale et la conduite autonome.",
+        "category": "Applications de l'IA"
+      },
+      {
+        "id": 31,
+        "term": "Chatbot",
+        "definition": "Programme informatique conçu pour simuler une conversation avec des utilisateurs humains, souvent via une interface de chat. Les chatbots modernes utilisent l'IA pour comprendre et répondre de manière naturelle aux questions.",
+        "category": "Applications de l'IA"
+      },
+      {
+        "id": 32,
+        "term": "Véhicule Autonome",
+        "definition": "Véhicule capable de se déplacer sans intervention humaine grâce à des systèmes d'IA avancés. Il utilise des capteurs, caméras et algorithmes pour percevoir son environnement et prendre des décisions de conduite.",
+        "category": "Applications de l'IA"
+      },
+      {
+        "id": 33,
+        "term": "Reconnaissance Vocale",
+        "definition": "Technologie qui permet aux ordinateurs de convertir la parole humaine en texte. Utilisée dans les assistants virtuels, la dictée automatique et les systèmes de commande vocale.",
+        "category": "Applications de l'IA"
+      },
+      {
+        "id": 34,
+        "term": "Transparence de l'IA",
+        "definition": "Principe selon lequel les systèmes d'IA doivent être compréhensibles et explicables dans leur fonctionnement. La transparence permet aux utilisateurs de comprendre comment les décisions sont prises par l'IA.",
+        "category": "Éthique et Société"
+      },
+      {
+        "id": 35,
+        "term": "IA Explicable (XAI)",
+        "definition": "Ensemble de méthodes et techniques qui permettent aux humains de comprendre et faire confiance aux résultats créés par les algorithmes d'apprentissage automatique. L'XAI rend les décisions de l'IA interprétables.",
+        "category": "Éthique et Société"
+      },
+      {
         "id": 36,
-        "term": "RGPD (Règlement Général sur la Protection des Données)",
-        "definition": "Règlement européen entré en vigueur en 2018 qui encadre le traitement des données personnelles. En IA, le RGPD impose des obligations strictes sur la collecte, le traitement et l'utilisation des données personnelles pour l'entraînement des modèles.",
-        "category": "Enjeux Éthiques et Réglementaires"
-    },
-    {
+        "term": "Confidentialité des Données",
+        "definition": "Protection des informations personnelles et sensibles utilisées par les systèmes d'IA. Implique des mesures techniques et légales pour empêcher l'accès non autorisé et l'utilisation abusive des données.",
+        "category": "Éthique et Société"
+      },
+      {
         "id": 37,
-        "term": "AI Act (Loi européenne sur l'IA)",
-        "definition": "Premier cadre réglementaire complet au monde pour l'intelligence artificielle, adopté par l'UE en 2024. Il classe les systèmes d'IA selon leur niveau de risque et impose des obligations proportionnelles, visant à garantir une IA sûre et respectueuse des droits fondamentaux.",
-        "category": "Enjeux Éthiques et Réglementaires"
-    },
-    {"id":38,
-        "term":"tokenisation",
-        "definition":"La tokenisation découpe le texte en unités élémentaires (tokens) que le modèle peut traiter numériquement. Chaque token reçoit un identifiant unique dans un vocabulaire fixe. En gros, 1 token=0,75 mot. Cela standardise l'input textuel en nombres pour les réseaux de neurones et permet un découpage quelle que soit la langue.",
-        "category":"Concepts de Base"
-    },
-    {
-      "id": 25,
-      "term": "Alan Turing",
-      "definition": "Fondateur théorique de l'informatique moderne et précurseur de l'intelligence artificielle. Créateur de la machine de Turing (1936) et du célèbre test de Turing (1950) pour évaluer l'intelligence des machines. Ses travaux ont posé les bases conceptuelles de l'IA.",
-      "category": "Personnalités de l'IA"
-    },
-    {
-      "id": 26,
-      "term": "John McCarthy",
-      "definition": "Créateur du terme 'intelligence artificielle' en 1956. Inventeur du langage de programmation LISP et organisateur de la conférence historique de Dartmouth qui a lancé officiellement le domaine de l'IA. Pionnier de la logique en IA.",
-      "category": "Personnalités de l'IA"
-    },
-    {
-      "id": 27,
-      "term": "Geoffrey Hinton",
-      "definition": "Surnommé le 'Parrain du deep learning'. Pionnier de l'algorithme de rétropropagation et des réseaux de neurones profonds. Ses travaux ont révolutionné l'apprentissage automatique moderne. Prix Turing 2018 avec Bengio et LeCun.",
-      "category": "Personnalités de l'IA"
-    },
-    {
-      "id": 28,
-      "term": "Marvin Minsky",
-      "definition": "Co-fondateur du MIT AI Lab en 1959. Pionnier des réseaux de neurones, de la représentation des connaissances et de la robotique. Auteur influent sur la théorie de l'esprit et l'intelligence artificielle. Prix Turing 1969.",
-      "category": "Personnalités de l'IA"
-    },
-    {
-      "id": 29,
-      "term": "Yann LeCun",
-      "definition": "Architecte des réseaux de neurones convolutifs (CNN) qui ont révolutionné la vision par ordinateur. Directeur scientifique de Meta AI et professeur à NYU. Co-lauréat du prix Turing 2018 pour ses contributions au deep learning.",
-      "category": "Personnalités de l'IA"
-    },
-    {
-      "id": 30,
-      "term": "Yoshua Bengio",
-      "definition": "Pionnier du deep learning et des réseaux de neurones récurrents. Professeur à l'Université de Montréal et co-fondateur d'Element AI. Co-lauréat du prix Turing 2018. Militant pour une IA éthique et bénéfique.",
-      "category": "Personnalités de l'IA"
-    },
-    {
-      "id": 31,
-      "term": "Andrew Ng",
-      "definition": "Figure majeure de la démocratisation du machine learning. Fondateur de Google Brain, ancien directeur du Stanford AI Lab, co-fondateur de Coursera. Pionnier de l'apprentissage en ligne massif en IA.",
-      "category": "Personnalités de l'IA"
-    },
-    {
-      "id": 32,
-      "term": "Demis Hassabis",
-      "definition": "Fondateur et CEO de DeepMind (acquis par Google). Architecte d'AlphaGo qui a battu le champion du monde de Go, et d'AlphaFold qui a révolutionné la prédiction de structure des protéines. Neuroscientifique et entrepreneur.",
-      "category": "Personnalités de l'IA"
-    },
-    {
-      "id": 33,
-      "term": "Judea Pearl",
-      "definition": "Révolutionnaire des réseaux bayésiens et de l'inférence causale en IA. Ses travaux sur la causalité ont transformé la compréhension des relations cause-effet dans les systèmes intelligents. Prix Turing 2011.",
-      "category": "Personnalités de l'IA"
-    },
-    {
-      "id": 34,
-      "term": "Stuart Russell",
-      "definition": "Référence mondiale en AI safety et alignement de l'IA. Co-auteur du manuel de référence 'Artificial Intelligence: A Modern Approach' (Russell & Norvig). Penseur influent sur les risques et la gouvernance de l'IA.",
-      "category": "Personnalités de l'IA"
-    },
-    {
-      "id": 35,
-      "term": "Sam Altman",
-      "definition": "CEO et co-fondateur d'OpenAI, l'organisation à l'origine de GPT et ChatGPT. Ancien président de Y Combinator. Figure emblématique du développement de l'IA générative et des grands modèles de langage.",
-      "category": "Personnalités de l'IA"
-    }
-   
-  ],
-  "nextId": 39
+        "term": "Cloud Computing",
+        "definition": "Modèle de fourniture de services informatiques (serveurs, stockage, bases de données, logiciels) via Internet. Le cloud permet d'accéder à des ressources de calcul puissantes nécessaires pour l'IA sans investissement matériel important.",
+        "category": "Infrastructure et Outils"
+      },
+      {
+        "id": 38,
+        "term": "GPU (Processeur Graphique)",
+        "definition": "Processeur spécialisé conçu pour traiter rapidement de grandes quantités de données en parallèle. Les GPU sont essentiels pour l'entraînement efficace des modèles d'IA, particulièrement en deep learning.",
+        "category": "Infrastructure et Outils"
+      },
+      {
+        "id": 39,
+        "term": "RPA (Robotic Process Automation)",
+        "definition": "les RPA automatise les tâches répétitives : clics, saisie, lecture d'écrans. Ils suivent des règles prédéfinies sans modifier les systèmes sous-jacents. Cela permet d'automatiser rapidement des processus métier structurés.",
+        "category": "Infrastructure et Outils"
+      },
+      {
+        "id": 40,
+        "term": "Framework d'IA",
+        "definition": "Bibliothèque logicielle qui fournit des outils et des fonctions prêts à l'emploi pour développer des applications d'IA. Exemples : TensorFlow, PyTorch, Scikit-learn.",
+        "category": "Infrastructure et Outils"
+      },
+      {
+        "id": 41,
+        "term": "Python",
+        "definition": "Langage de programmation très populaire en IA grâce à sa simplicité et ses nombreuses bibliothèques spécialisées. Python est largement utilisé pour le développement de modèles d'apprentissage automatique et de deep learning.",
+        "category": "Infrastructure et Outils"
+      },
+      {
+        "id": 42,
+        "term": "Modèle Pré-entraîné",
+        "definition": "Modèle d'IA déjà entraîné sur un large ensemble de données et qui peut être utilisé directement ou adapté pour des tâches spécifiques. Permet de gagner du temps et des ressources de calcul.",
+        "category": "Modèles et Algorithmes"
+      },
+      {
+        "id": 46,
+        "term": "Numérique responsable",
+        "definition": "Approche visant à développer et utiliser les technologies numériques, dont l'IA, de manière sobre, durable et inclusive, en cohérence avec les engagements régionaux Néo Terra et les principes de développement durable.",
+        "category": "Territoires et IA"
+      },
+      {
+        "id": 47,
+        "term": "Transition énergétique",
+        "definition": "Ensemble des transformations du système énergétique (production, distribution, consommation) pour répondre aux enjeux climatiques et environnementaux, où l'IA joue un rôle d'optimisation et d'aide à la décision pour les territoires.",
+        "category": "Territoires et IA"
+      },
+      {
+        "id": 48,
+        "term": "Veille économique",
+        "definition": "Processus de collecte, d'analyse et de diffusion d'informations stratégiques (marchés, innovations, tendances) pour anticiper les évolutions économiques locales, souvent assisté par des outils d'IA.",
+        "category": "Territoires et IA"
+      },
+      {
+        "id": 49,
+        "term": "Analyse prédictive",
+        "definition": "Utilisation de techniques d'IA et de statistiques pour anticiper des événements futurs ou des tendances à partir de données historiques, très utilisée dans la gestion territoriale et l'aide à la décision.",
+        "category": "Territoires et IA"
+      },
+      {
+        "id": 50,
+        "term": "Pilotage stratégique territorial",
+        "definition": "Ensemble des méthodes et outils (dont l'IA) permettant de définir, suivre et ajuster les orientations stratégiques d'un territoire, en s'appuyant sur des indicateurs et des analyses avancées.",
+        "category": "Territoires et IA"
+      },
+      {
+        "id": 51,
+        "term": "Cartographie des acteurs IA et data",
+        "definition": "Outil ou démarche visant à recenser, visualiser et analyser les entreprises, laboratoires, clusters et compétences locales en IA et data science, pour favoriser les synergies et l'innovation régionale.",
+        "category": "Territoires et IA"
+      },
+      {
+        "id": 52,
+        "term": "Prompt engineering",
+        "definition": "Art de concevoir et d'optimiser les instructions (prompts) adressées à une IA générative pour obtenir des résultats pertinents et adaptés aux besoins métiers.",
+        "category": "IA Générative"
+      },
+      {
+        "id": 53,
+        "term": "Cas d'usage",
+        "definition": "Scénario concret illustrant comment une technologie d'IA peut répondre à un besoin ou à un défi spécifique d'un territoire ou d'un métier (ex : analyse de documents, synthèse de rapports, gestion de l'énergie).",
+        "category": "Applications de l'IA"
+      },
+      {
+        "id": 54,
+        "term": "Prospective territoriale IA",
+        "definition": "Démarche d'anticipation des évolutions à moyen et long terme d'un territoire, intégrant l'analyse de données, la modélisation et l'IA pour éclairer les choix stratégiques.",
+        "category": "Territoires et IA"
+      },
+      {
+        "id": 55,
+        "term": "Datavisualisation",
+        "definition": "Ensemble des techniques permettant de représenter visuellement des données complexes (cartes, graphiques interactifs) pour faciliter la compréhension et la prise de décision, souvent enrichies par l'IA.",
+        "category": "Données et Traitement"
+      },
+      {
+        "id": 56,
+        "term": "Système d'Information Géographique (SIG)",
+        "definition": "Outil informatique permettant de collecter, stocker, analyser et visualiser des données géolocalisées, de plus en plus couplé à l'IA pour des analyses spatiales avancées.",
+        "category": "Infrastructure et Outils"
+      },
+      {
+        "id": 50,
+        "term": "Données territoriales",
+        "definition": "Ensemble des données quantitatives et qualitatives caractérisant un territoire (démographie, économie, environnement, mobilité…), essentielles pour entraîner et exploiter les modèles d'IA à des fins de développement local.",
+        "category": "Territoires et IA"
+      },
+      {
+        "id": 51,
+        "term": "Libre arbitre humain",
+        "definition": "Principe selon lequel, malgré l'automatisation croissante et l'aide à la décision offerte par l'IA, la décision finale doit rester sous contrôle humain, notamment dans la gestion des politiques publiques.",
+        "category": "Éthique et Société"
+      },
+      {
+        "id": 60,
+        "term": "Alan Turing",
+        "definition": "Fondateur théorique de l'informatique moderne et précurseur de l'intelligence artificielle. Créateur de la machine de Turing (1936) et du célèbre test de Turing (1950) pour évaluer l'intelligence des machines. Ses travaux ont posé les bases conceptuelles de l'IA.",
+        "category": "Personnalités de l'IA"
+      },
+      {
+        "id": 61,
+        "term": "John McCarthy",
+        "definition": "Créateur du terme 'intelligence artificielle' en 1956. Inventeur du langage de programmation LISP et organisateur de la conférence historique de Dartmouth qui a lancé officiellement le domaine de l'IA. Pionnier de la logique en IA.",
+        "category": "Personnalités de l'IA"
+      },
+      {
+        "id": 62,
+        "term": "Geoffrey Hinton",
+        "definition": "Surnommé le 'Parrain du deep learning'. Pionnier de l'algorithme de rétropropagation et des réseaux de neurones profonds. Ses travaux ont révolutionné l'apprentissage automatique moderne. Prix Turing 2018 avec Bengio et LeCun.",
+        "category": "Personnalités de l'IA"
+      },
+      {
+        "id": 63,
+        "term": "Marvin Minsky",
+        "definition": "Co-fondateur du MIT AI Lab en 1959. Pionnier des réseaux de neurones, de la représentation des connaissances et de la robotique. Auteur influent sur la théorie de l'esprit et l'intelligence artificielle. Prix Turing 1969.",
+        "category": "Personnalités de l'IA"
+      },
+      {
+        "id": 64,
+        "term": "Yann LeCun",
+        "definition": "Architecte des réseaux de neurones convolutifs (CNN) qui ont révolutionné la vision par ordinateur. Directeur scientifique de Meta AI et professeur à NYU. Co-lauréat du prix Turing 2018 pour ses contributions au deep learning.",
+        "category": "Personnalités de l'IA"
+      },
+      {
+        "id": 65,
+        "term": "Yoshua Bengio",
+        "definition": "Pionnier du deep learning et des réseaux de neurones récurrents. Professeur à l'Université de Montréal et co-fondateur d'Element AI. Co-lauréat du prix Turing 2018. Militant pour une IA éthique et bénéfique.",
+        "category": "Personnalités de l'IA"
+      },
+      {
+        "id": 66,
+        "term": "Andrew Ng",
+        "definition": "Figure majeure de la démocratisation du machine learning. Fondateur de Google Brain, ancien directeur du Stanford AI Lab, co-fondateur de Coursera. Pionnier de l'apprentissage en ligne massif en IA.",
+        "category": "Personnalités de l'IA"
+      },
+      {
+        "id": 67,
+        "term": "Demis Hassabis",
+        "definition": "Fondateur et CEO de DeepMind (acquis par Google). Architecte d'AlphaGo qui a battu le champion du monde de Go, et d'AlphaFold qui a révolutionné la prédiction de structure des protéines. Neuroscientifique et entrepreneur.",
+        "category": "Personnalités de l'IA"
+      },
+      {
+        "id": 68,
+        "term": "Jensen Huang",
+        "definition": "Cofondateur et CEO de NVIDIA depuis 1993. Visionnaire qui a transformé NVIDIA d'une entreprise de cartes graphiques gaming en leader mondial de l'IA et du calcul parallèle, anticipant le boom du deep learning.",
+        "category": "Personnalités de l'IA"
+      },
+      {
+        "id": 69,
+        "term": "Stuart Russell",
+        "definition": "Référence mondiale en AI safety et alignement de l'IA. Co-auteur du manuel de référence 'Artificial Intelligence: A Modern Approach' (Russell & Norvig). Penseur influent sur les risques et la gouvernance de l'IA.",
+        "category": "Personnalités de l'IA"
+      },
+      {
+        "id": 70,
+        "term": "Sam Altman",
+        "definition": "CEO et co-fondateur d'OpenAI, l'organisation à l'origine de GPT et ChatGPT. Ancien président de Y Combinator. Figure emblématique du développement de l'IA générative et des grands modèles de langage.",
+        "category": "Personnalités de l'IA"
+      }
+      
+     
+    ],
+    "nextId": 71
 }
