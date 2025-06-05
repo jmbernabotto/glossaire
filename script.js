@@ -239,8 +239,38 @@ let glossaryTerms = [
     
 ];
 
+// Glossaire IA - Données chargées depuis JSON
+let glossaryTerms = [];
 let nextId = 38;
-let filteredTerms = [...glossaryTerms];
+let filteredTerms = [];
+
+// Fonction pour charger les données du glossaire
+async function loadGlossaryData() {
+    try {
+        const response = await fetch('./glossary-data.json');
+        if (!response.ok) {
+            throw new Error('Impossible de charger les données du glossaire');
+        }
+        const data = await response.json();
+        glossaryTerms = data.terms;
+        nextId = data.nextId;
+        
+        // Charger les termes supplémentaires depuis localStorage
+        loadFromLocalStorage();
+        
+        // Mettre à jour l'affichage
+        filteredTerms = [...glossaryTerms];
+        renderGlossary();
+        
+        console.log('Données du glossaire chargées:', glossaryTerms.length, 'termes');
+    } catch (error) {
+        console.error('Erreur lors du chargement des données:', error);
+        // En cas d'erreur, utiliser les données de localStorage uniquement
+        loadFromLocalStorage();
+        filteredTerms = [...glossaryTerms];
+        renderGlossary();
+    }
+}
 
 // Éléments DOM
 const glossaryGrid = document.getElementById('glossaryGrid');
@@ -253,10 +283,8 @@ const cancelBtn = document.getElementById('cancelBtn');
 
 // Initialisation
 document.addEventListener('DOMContentLoaded', function() {
-    // AJOUTER CETTE LIGNE POUR CHARGER LES DONNÉES SAUVEGARDÉES
-    loadFromLocalStorage();
-    
-    renderGlossary();
+    // Charger les données du glossaire depuis le fichier JSON
+    loadGlossaryData();
     setupEventListeners();
 });
 
@@ -669,18 +697,33 @@ function deleteTerm(id) {
 
 // Sauvegarde locale (optionnel)
 function saveToLocalStorage() {
-    localStorage.setItem('glossaryTerms', JSON.stringify(glossaryTerms));
+    // Sauvegarder seulement les nouveaux termes (ID >= nextId initial)
+    const newTerms = glossaryTerms.filter(term => term.id >= 38);
+    localStorage.setItem('glossaryTerms', JSON.stringify(newTerms));
+    console.log('Nouveaux termes sauvegardés:', newTerms.length);
 }
 
+// Fonction pour charger depuis localStorage (modifiée)
 function loadFromLocalStorage() {
     const saved = localStorage.getItem('glossaryTerms');
     if (saved) {
-        glossaryTerms = JSON.parse(saved);
-        filteredTerms = [...glossaryTerms];
-        
-        // AJOUTER: Mettre à jour nextId pour éviter les conflits
-        if (glossaryTerms.length > 0) {
-            nextId = Math.max(...glossaryTerms.map(term => term.id)) + 1;
+        try {
+            const newTerms = JSON.parse(saved);
+            // Ajouter les nouveaux termes aux termes de base
+            newTerms.forEach(term => {
+                if (!glossaryTerms.find(existing => existing.id === term.id)) {
+                    glossaryTerms.push(term);
+                }
+            });
+            
+            // Mettre à jour nextId
+            if (glossaryTerms.length > 0) {
+                nextId = Math.max(...glossaryTerms.map(term => term.id)) + 1;
+            }
+            
+            console.log('Termes chargés depuis localStorage:', newTerms.length);
+        } catch (error) {
+            console.error('Erreur lors du chargement depuis localStorage:', error);
         }
     }
 }
