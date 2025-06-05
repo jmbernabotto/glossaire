@@ -1,4 +1,5 @@
 // Glossaire IA - Données chargées depuis JSON
+// Variables globales
 let glossaryTerms = [];
 let nextId = 38;
 let filteredTerms = [];
@@ -42,7 +43,6 @@ const cancelBtn = document.getElementById('cancelBtn');
 
 // Initialisation
 document.addEventListener('DOMContentLoaded', function() {
-    // Charger les données du glossaire depuis le fichier JSON
     loadGlossaryData();
     setupEventListeners();
 });
@@ -54,9 +54,6 @@ function setupEventListeners() {
     closeModal.addEventListener('click', closeModalHandler);
     cancelBtn.addEventListener('click', closeModalHandler);
     addTermForm.addEventListener('submit', handleAddTerm);
-    
-    // Configurer les zones de drop
-    setupDropZones();
     
     // Fermer le modal en cliquant à l'extérieur
     window.addEventListener('click', function(event) {
@@ -75,14 +72,13 @@ function renderGlossary() {
         return;
     }
     
-    // Affichage simple en grille de 3 colonnes
     filteredTerms.forEach(term => {
         const termCard = createTermCard(term);
         glossaryGrid.appendChild(termCard);
     });
 }
 
-// Création d'une carte de terme (avec drag and drop simplifié)
+// Création d'une carte de terme
 function createTermCard(term) {
     const card = document.createElement('div');
     card.className = 'term-card';
@@ -91,289 +87,12 @@ function createTermCard(term) {
         <button class="delete-btn" onclick="deleteTerm(${term.id})" title="Supprimer">
             ×
         </button>
-        <div class="drag-handle" title="Glisser pour déplacer">⋮⋮</div>
         <h3 class="term-title">${term.term}</h3>
         <p class="term-definition">${term.definition}</p>
+        ${term.category ? `<span class="term-category">${term.category}</span>` : ''}
     `;
     
-    // Ajouter les événements de drag and drop
-    setupCardDragAndDrop(card);
-    
     return card;
-}
-
-// Configuration simplifiée du drag and drop
-function setupCardDragAndDrop(card) {
-    const dragHandle = card.querySelector('.drag-handle');
-    
-    dragHandle.addEventListener('mousedown', function(e) {
-        e.preventDefault();
-        startDrag(card, e);
-    });
-    
-    // Support tactile pour mobile
-    dragHandle.addEventListener('touchstart', function(e) {
-        e.preventDefault();
-        startDrag(card, e.touches[0]);
-    });
-}
-
-// Variables pour le drag and drop
-let draggedElement = null;
-let dragOffset = { x: 0, y: 0 };
-let isDragging = false;
-let dragStarted = false;
-let targetCard = null;
-
-function startDrag(card, event) {
-    event.preventDefault();
-    event.stopPropagation();
-    
-    if (isDragging) return;
-    isDragging = true;
-    dragStarted = false;
-    
-    // Désactiver la sélection de texte
-    document.body.style.userSelect = 'none';
-    document.body.style.webkitUserSelect = 'none';
-    
-    draggedElement = card;
-    
-    // Calculer l'offset par rapport au clic
-    const rect = card.getBoundingClientRect();
-    const clientX = event.clientX || (event.touches && event.touches[0].clientX);
-    const clientY = event.clientY || (event.touches && event.touches[0].clientY);
-    
-    dragOffset.x = clientX - rect.left;
-    dragOffset.y = clientY - rect.top;
-    
-    // Gestionnaire de mouvement avec seuil de déclenchement
-    function onMouseMove(e) {
-        if (!draggedElement || !isDragging) return;
-        
-        const clientX = e.clientX || (e.touches && e.touches[0].clientX);
-        const clientY = e.clientY || (e.touches && e.touches[0].clientY);
-        
-        // Calculer la distance de déplacement
-        const moveDistance = Math.sqrt(
-            Math.pow(clientX - (rect.left + dragOffset.x), 2) + 
-            Math.pow(clientY - (rect.top + dragOffset.y), 2)
-        );
-        
-        // Démarrer le drag seulement après un déplacement significatif (20px)
-        if (!dragStarted && moveDistance > 20) {
-            dragStarted = true;
-            
-            // Configurer la carte pour le drag
-            draggedElement.classList.add('dragging');
-            draggedElement.style.position = 'fixed';
-            draggedElement.style.zIndex = '1000';
-            draggedElement.style.pointerEvents = 'none';
-        }
-        
-        // Si le drag a commencé, mettre à jour la position
-        if (dragStarted) {
-            draggedElement.style.left = (clientX - dragOffset.x) + 'px';
-            draggedElement.style.top = (clientY - dragOffset.y) + 'px';
-            
-            // Identifier la carte cible (sans créer de placeholder)
-            findTargetCard(clientX, clientY);
-        }
-    }
-    
-    // Fonction pour identifier la carte cible
-    function findTargetCard(clientX, clientY) {
-        const cards = Array.from(glossaryGrid.querySelectorAll('.term-card:not(.dragging)'));
-        let newTargetCard = null;
-        
-        // Trouver la carte sous le curseur
-        for (const card of cards) {
-            const rect = card.getBoundingClientRect();
-            if (clientX >= rect.left && clientX <= rect.right && 
-                clientY >= rect.top && clientY <= rect.bottom) {
-                newTargetCard = card;
-                break;
-            }
-        }
-        
-        // Mettre à jour le style de la carte cible
-        if (targetCard && targetCard !== newTargetCard) {
-            targetCard.style.backgroundColor = ''; // Retirer l'ancien highlight
-        }
-        
-        if (newTargetCard && newTargetCard !== targetCard) {
-            newTargetCard.style.backgroundColor = 'rgba(74, 144, 226, 0.1)'; // Highlight la nouvelle cible
-        }
-        
-        targetCard = newTargetCard;
-    }
-    
-    function onMouseUp(e) {
-        if (!isDragging) return;
-        
-        isDragging = false;
-        
-        // Restaurer la sélection
-        document.body.style.userSelect = '';
-        document.body.style.webkitUserSelect = '';
-        
-        // Si le drag a vraiment commencé et qu'il y a une carte cible
-        if (dragStarted && targetCard && draggedElement) {
-            // Effectuer le réarrangement en cascade
-            performCascadeRearrangement();
-        }
-        
-        // Nettoyer les styles
-        if (draggedElement) {
-            draggedElement.classList.remove('dragging');
-            draggedElement.style.position = '';
-            draggedElement.style.left = '';
-            draggedElement.style.top = '';
-            draggedElement.style.zIndex = '';
-            draggedElement.style.pointerEvents = '';
-        }
-        
-        // Nettoyer le highlight de la carte cible
-        if (targetCard) {
-            targetCard.style.backgroundColor = '';
-        }
-        
-        // Nettoyer les variables
-        draggedElement = null;
-        targetCard = null;
-        dragOffset = { x: 0, y: 0 };
-        dragStarted = false;
-        
-        // Supprimer les écouteurs
-        document.removeEventListener('mousemove', onMouseMove);
-        document.removeEventListener('mouseup', onMouseUp);
-        document.removeEventListener('touchmove', onMouseMove);
-        document.removeEventListener('touchend', onMouseUp);
-    }
-    
-    // Fonction pour effectuer le réarrangement en cascade
-    function performCascadeRearrangement() {
-        if (!draggedElement || !targetCard) return;
-        
-        // Obtenir les IDs des cartes
-        const draggedId = parseInt(draggedElement.dataset.termId);
-        const targetId = parseInt(targetCard.dataset.termId);
-        
-        // Trouver les indices dans le tableau
-        const draggedIndex = glossaryTerms.findIndex(term => term.id === draggedId);
-        const targetIndex = glossaryTerms.findIndex(term => term.id === targetId);
-        
-        if (draggedIndex !== -1 && targetIndex !== -1 && draggedIndex !== targetIndex) {
-            // Retirer l'élément de sa position actuelle
-            const draggedTerm = glossaryTerms.splice(draggedIndex, 1)[0];
-            
-            // Calculer la nouvelle position cible (ajustée si nécessaire)
-            let newTargetIndex = targetIndex;
-            if (draggedIndex < targetIndex) {
-                newTargetIndex = targetIndex - 1; // Compenser la suppression
-            }
-            
-            // Insérer l'élément à sa nouvelle position
-            glossaryTerms.splice(newTargetIndex, 0, draggedTerm);
-            
-            // Mettre à jour filteredTerms pour refléter le changement
-            filteredTerms = [...glossaryTerms];
-            
-            // Sauvegarder dans localStorage
-            localStorage.setItem('glossaryTerms', JSON.stringify(glossaryTerms));
-            
-            // Re-rendre le glossaire
-            renderGlossary();
-        }
-    }
-    
-    // Ajouter les écouteurs
-    document.addEventListener('mousemove', onMouseMove);
-    document.addEventListener('mouseup', onMouseUp);
-    document.addEventListener('touchmove', onMouseMove);
-    document.addEventListener('touchend', onMouseUp);
-}
-
-// Trouver la carte la plus proche
-function getClosestCard(x, y) {
-    const cards = Array.from(glossaryGrid.querySelectorAll('.term-card:not(.dragging)'));
-    let closest = null;
-    let closestDistance = Infinity;
-    
-    cards.forEach(card => {
-        const rect = card.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        const distance = Math.sqrt(Math.pow(x - centerX, 2) + Math.pow(y - centerY, 2));
-        
-        if (distance < closestDistance) {
-            closestDistance = distance;
-            closest = card;
-        }
-    });
-    
-    return closest;
-}
-
-// Sauvegarder l'ordre des cartes (version corrigée)
-function saveCardOrder() {
-    const cards = Array.from(glossaryGrid.querySelectorAll('.term-card'));
-    const newOrder = cards.map(card => parseInt(card.dataset.termId)).filter(id => !isNaN(id));
-    
-    // Réorganiser le tableau glossaryTerms selon le nouvel ordre
-    const reorderedTerms = [];
-    newOrder.forEach(id => {
-        const term = glossaryTerms.find(t => t.id === id);
-        if (term) reorderedTerms.push(term);
-    });
-    
-    // Ajouter les termes manquants (au cas où)
-    glossaryTerms.forEach(term => {
-        if (!reorderedTerms.find(t => t.id === term.id)) {
-            reorderedTerms.push(term);
-        }
-    });
-    
-    glossaryTerms = reorderedTerms;
-    filteredTerms = [...glossaryTerms];
-    
-    // Sauvegarder en localStorage
-    localStorage.setItem('glossaryTerms', JSON.stringify(glossaryTerms));
-}
-
-// Configuration des zones de drop pour la grille
-function setupDropZones() {
-    glossaryGrid.addEventListener('dragover', function(e) {
-        e.preventDefault();
-        e.dataTransfer.dropEffect = 'move';
-    });
-    
-    glossaryGrid.addEventListener('drop', function(e) {
-        e.preventDefault();
-        if (draggedElement && draggedElement.parentNode !== glossaryGrid) {
-            glossaryGrid.appendChild(draggedElement);
-            saveCardOrder();
-        }
-    });
-}
-
-// Modifier la fonction setupEventListeners
-function setupEventListeners() {
-    searchInput.addEventListener('input', handleSearch);
-    addTermBtn.addEventListener('click', openModal);
-    closeModal.addEventListener('click', closeModalHandler);
-    cancelBtn.addEventListener('click', closeModalHandler);
-    addTermForm.addEventListener('submit', handleAddTerm);
-    
-    // Configurer les zones de drop
-    setupDropZones();
-    
-    // Fermer le modal en cliquant à l'extérieur
-    window.addEventListener('click', function(event) {
-        if (event.target === modal) {
-            closeModalHandler();
-        }
-    });
 }
 
 // Recherche
@@ -381,7 +100,8 @@ function handleSearch(event) {
     const searchTerm = event.target.value.toLowerCase();
     filteredTerms = glossaryTerms.filter(term => 
         term.term.toLowerCase().includes(searchTerm) || 
-        term.definition.toLowerCase().includes(searchTerm)
+        term.definition.toLowerCase().includes(searchTerm) ||
+        (term.category && term.category.toLowerCase().includes(searchTerm))
     );
     renderGlossary();
 }
@@ -418,13 +138,14 @@ function handleAddTerm(event) {
         const newTerm = {
             id: nextId++,
             term: termName,
-            definition: termDefinition
+            definition: termDefinition,
+            category: 'Nouveau'
         };
         
         glossaryTerms.push(newTerm);
         filteredTerms = [...glossaryTerms];
         
-        // Sauvegarder seulement les nouveaux termes (ID >= 38)
+        // Sauvegarder seulement les nouveaux termes
         saveToLocalStorage();
         
         renderGlossary();
@@ -432,9 +153,11 @@ function handleAddTerm(event) {
         
         // Scroll vers le nouveau terme
         setTimeout(() => {
-            const newCard = document.querySelector(`[onclick="deleteTerm(${newTerm.id})"]`).parentElement;
-            newCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            newCard.style.animation = 'modalSlideIn 0.5s ease';
+            const newCard = document.querySelector(`[data-term-id="${newTerm.id}"]`);
+            if (newCard) {
+                newCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                newCard.style.animation = 'modalSlideIn 0.5s ease';
+            }
         }, 100);
     }
 }
@@ -445,28 +168,26 @@ function deleteTerm(id) {
         glossaryTerms = glossaryTerms.filter(term => term.id !== id);
         filteredTerms = filteredTerms.filter(term => term.id !== id);
         
-        // AJOUTER CETTE LIGNE POUR SAUVEGARDER
-        localStorage.setItem('glossaryTerms', JSON.stringify(glossaryTerms));
+        // Sauvegarder les changements
+        saveToLocalStorage();
         
         renderGlossary();
     }
 }
 
-// Sauvegarde locale (optionnel)
+// Sauvegarde locale (seulement les nouveaux termes)
 function saveToLocalStorage() {
-    // Sauvegarder seulement les nouveaux termes (ID >= nextId initial)
     const newTerms = glossaryTerms.filter(term => term.id >= 38);
-    localStorage.setItem('glossaryTerms', JSON.stringify(newTerms));
+    localStorage.setItem('newGlossaryTerms', JSON.stringify(newTerms));
     console.log('Nouveaux termes sauvegardés:', newTerms.length);
 }
 
-// Fonction pour charger depuis localStorage (modifiée)
+// Chargement depuis localStorage
 function loadFromLocalStorage() {
-    const saved = localStorage.getItem('glossaryTerms');
+    const saved = localStorage.getItem('newGlossaryTerms');
     if (saved) {
         try {
             const newTerms = JSON.parse(saved);
-            // Ajouter les nouveaux termes aux termes de base
             newTerms.forEach(term => {
                 if (!glossaryTerms.find(existing => existing.id === term.id)) {
                     glossaryTerms.push(term);
