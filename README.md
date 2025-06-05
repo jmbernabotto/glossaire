@@ -1,4 +1,4 @@
-# Glossaire CNER Nouvelle Aquitaine
+# Glossaire IA
 
 Une application web interactive pour gérer et consulter le glossaire des termes techniques.
 
