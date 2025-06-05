@@ -126,6 +126,11 @@
       "definition": "Processus d'adaptation d'un modèle pré-entraîné à une tâche spécifique en continuant son entraînement sur un ensemble de données plus restreint et ciblé. Permet d'optimiser les performances pour des applications particulières.",
       "category": "Glossaire Étendu - Termes Complémentaires"
     },
+    {"id":38,
+        "term":"tokenisation",
+        "definition":"La tokenisation découpe le texte en unités élémentaires (tokens) que le modèle peut traiter numériquement. Chaque token reçoit un identifiant unique dans un vocabulaire fixe. En gros, 1 token=0,75 mot. Cela standardise l'input textuel en nombres pour les réseaux de neurones et permet un découpage quelle que soit la langue.",
+        "category":"Concepts de Base"
+    },
     {
       "id": 22,
       "term": "Token",
@@ -155,11 +160,6 @@
         "term": "AI Act (Loi européenne sur l'IA)",
         "definition": "Premier cadre réglementaire complet au monde pour l'intelligence artificielle, adopté par l'UE en 2024. Il classe les systèmes d'IA selon leur niveau de risque et impose des obligations proportionnelles, visant à garantir une IA sûre et respectueuse des droits fondamentaux.",
         "category": "Enjeux Éthiques et Réglementaires"
-    },
-    {"id":38,
-        "term":"tokenisation",
-        "definition":"La tokenisation découpe le texte en unités élémentaires (tokens) que le modèle peut traiter numériquement. Chaque token reçoit un identifiant unique dans un vocabulaire fixe. En gros, 1 token=0,75 mot. Cela standardise l'input textuel en nombres pour les réseaux de neurones et permet un découpage quelle que soit la langue.",
-        "category":"Concepts de Base"
     },
     {
       "id": 25,
