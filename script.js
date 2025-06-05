@@ -665,10 +665,8 @@ function handleAddTerm(event) {
         glossaryTerms.push(newTerm);
         filteredTerms = [...glossaryTerms];
         
-        // AJOUTER CETTE LIGNE POUR SAUVEGARDER
-        // Dans handleAddTerm, après localStorage.setItem
-        localStorage.setItem('glossaryTerms', JSON.stringify(glossaryTerms));
-        console.log('Terme sauvegardé:', newTerm, 'Total termes:', glossaryTerms.length); // DEBUG
+        // Sauvegarder seulement les nouveaux termes (ID >= 38)
+        saveToLocalStorage();
         
         renderGlossary();
         closeModalHandler();
