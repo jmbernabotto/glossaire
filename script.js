@@ -633,6 +633,10 @@ function handleAddTerm(event) {
         
         glossaryTerms.push(newTerm);
         filteredTerms = [...glossaryTerms];
+        
+        // AJOUTER CETTE LIGNE POUR SAUVEGARDER
+        localStorage.setItem('glossaryTerms', JSON.stringify(glossaryTerms));
+        
         renderGlossary();
         closeModalHandler();
         
@@ -650,6 +654,10 @@ function deleteTerm(id) {
     if (confirm('Êtes-vous sûr de vouloir supprimer ce terme ?')) {
         glossaryTerms = glossaryTerms.filter(term => term.id !== id);
         filteredTerms = filteredTerms.filter(term => term.id !== id);
+        
+        // AJOUTER CETTE LIGNE POUR SAUVEGARDER
+        localStorage.setItem('glossaryTerms', JSON.stringify(glossaryTerms));
+        
         renderGlossary();
     }
 }
