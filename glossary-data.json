@@ -145,6 +145,23 @@
       "category": "Glossaire Étendu - Termes Complémentaires"
     },
     {
+        "id": 36,
+        "term": "RGPD (Règlement Général sur la Protection des Données)",
+        "definition": "Règlement européen entré en vigueur en 2018 qui encadre le traitement des données personnelles. En IA, le RGPD impose des obligations strictes sur la collecte, le traitement et l'utilisation des données personnelles pour l'entraînement des modèles.",
+        "category": "Enjeux Éthiques et Réglementaires"
+    },
+    {
+        "id": 37,
+        "term": "AI Act (Loi européenne sur l'IA)",
+        "definition": "Premier cadre réglementaire complet au monde pour l'intelligence artificielle, adopté par l'UE en 2024. Il classe les systèmes d'IA selon leur niveau de risque et impose des obligations proportionnelles, visant à garantir une IA sûre et respectueuse des droits fondamentaux.",
+        "category": "Enjeux Éthiques et Réglementaires"
+    },
+    {"id":38,
+        "term":"tokenisation",
+        "definition":"La tokenisation découpe le texte en unités élémentaires (tokens) que le modèle peut traiter numériquement. Chaque token reçoit un identifiant unique dans un vocabulaire fixe. En gros, 1 token=0,75 mot. Cela standardise l'input textuel en nombres pour les réseaux de neurones et permet un découpage quelle que soit la langue.",
+        "category":"Concepts de Base"
+    },
+    {
       "id": 25,
       "term": "Alan Turing",
       "definition": "Fondateur théorique de l'informatique moderne et précurseur de l'intelligence artificielle. Créateur de la machine de Turing (1936) et du célèbre test de Turing (1950) pour évaluer l'intelligence des machines. Ses travaux ont posé les bases conceptuelles de l'IA.",
@@ -210,18 +227,7 @@
       "definition": "CEO et co-fondateur d'OpenAI, l'organisation à l'origine de GPT et ChatGPT. Ancien président de Y Combinator. Figure emblématique du développement de l'IA générative et des grands modèles de langage.",
       "category": "Personnalités de l'IA"
     },
-    {
-      "id": 36,
-      "term": "RGPD (Règlement Général sur la Protection des Données)",
-      "definition": "Règlement européen entré en vigueur en 2018 qui encadre le traitement des données personnelles. En IA, le RGPD impose des obligations strictes sur la collecte, le traitement et l'utilisation des données personnelles pour l'entraînement des modèles.",
-      "category": "Enjeux Éthiques et Réglementaires"
-    },
-    {
-      "id": 37,
-      "term": "AI Act (Loi européenne sur l'IA)",
-      "definition": "Premier cadre réglementaire complet au monde pour l'intelligence artificielle, adopté par l'UE en 2024. Il classe les systèmes d'IA selon leur niveau de risque et impose des obligations proportionnelles, visant à garantir une IA sûre et respectueuse des droits fondamentaux.",
-      "category": "Enjeux Éthiques et Réglementaires"
-    }
+   
   ],
-  "nextId": 38
+  "nextId": 39
 }
