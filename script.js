@@ -253,6 +253,9 @@ const cancelBtn = document.getElementById('cancelBtn');
 
 // Initialisation
 document.addEventListener('DOMContentLoaded', function() {
+    // AJOUTER CETTE LIGNE POUR CHARGER LES DONNÉES SAUVEGARDÉES
+    loadFromLocalStorage();
+    
     renderGlossary();
     setupEventListeners();
 });
