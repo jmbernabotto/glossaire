@@ -675,5 +675,10 @@ function loadFromLocalStorage() {
     if (saved) {
         glossaryTerms = JSON.parse(saved);
         filteredTerms = [...glossaryTerms];
+        
+        // AJOUTER: Mettre à jour nextId pour éviter les conflits
+        if (glossaryTerms.length > 0) {
+            nextId = Math.max(...glossaryTerms.map(term => term.id)) + 1;
+        }
     }
 }
